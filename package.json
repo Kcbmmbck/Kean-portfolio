@@ -1,0 +1,21 @@
+{
+    "version": "1.0.0",
+    "description": "ParticleJS tutorial for beginners by Yash Chauhan(yc_codes)",
+    "main": "index.html",
+    "scripts": {
+      "start": "serve",
+      "build": "ParticleJS tutorial for beginners by Yash Chauhan(yc_codes)"
+    },
+    "keywords": [
+      "particle js",
+      "interactive particles",
+      "yc codes",
+      "codesandbox"
+    ],
+    "author": "Yash Chauhan",
+    "license": "MIT",
+    "devDependencies": {
+      "serve": "^11.2.0"
+    }
+  }
+  
