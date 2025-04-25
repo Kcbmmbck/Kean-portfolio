@@ -77,7 +77,7 @@ body.fade-out {
 }
 
 .Github::after {
-  content: "Facebook";
+  content: "Github";
   position: absolute;
   bottom: 125%; /* position above the button */
   left: 50%;
