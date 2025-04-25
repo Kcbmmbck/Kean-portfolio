@@ -76,6 +76,26 @@ body.fade-out {
   opacity: 1;
 }
 
+.Github::after {
+  content: "Facebook";
+  position: absolute;
+  bottom: 125%; /* position above the button */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  padding: 5px 10px;
+  border-radius: 5px;
+  opacity: 0;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.Github:hover::after {
+  opacity: 1;
+}
+
 .Twitter::after {
   content: "X (Twitter)";
   position: absolute;
