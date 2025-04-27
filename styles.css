@@ -1022,7 +1022,16 @@ margin: 2em 0 3em;
   min-height: 110vh;
 }
 
-h1 {
+@media (max-width: 430px){
+  .Myskills1 h1{
+    font-size: 35px !important;
+  }
+  .grid-container{
+    width: 50% !important; 
+  }
+}
+
+.Myskills1 h1 {
   color: rgb(255, 255, 255);
   text-align: center;
   font-size: 90px;
