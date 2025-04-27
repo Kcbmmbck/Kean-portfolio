@@ -1836,7 +1836,7 @@ section .animate{
 
 @media ( max-width: 430px){
 .navbar-brand img{
-   width: 30%;
+   width: 10%;
   height: 40px;
 }
   .Project {
