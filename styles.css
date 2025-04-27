@@ -1022,15 +1022,6 @@ margin: 2em 0 3em;
   min-height: 110vh;
 }
 
-@media (max-width: 430px){
-  .Myskills1 h1{
-    font-size: 35px !important;
-  }
-  .grid-container{
-    width: 50% !important; 
-  }
-}
-
 .Myskills1 h1 {
   color: rgb(255, 255, 255);
   text-align: center;
@@ -1778,6 +1769,28 @@ section .animate{
 .navbar-brand img{
   width: 70%;
   height: 40px;
+}
+
+@media (max-width: 430px){
+  .My_Skills{
+     min-height: 230vh !important;
+  }
+  .Myskills1 h1{
+    font-size: 35px !important;
+    margin-bottom: 30px !important;
+  }
+  .grid-container{
+    width: 50% !important; 
+  }
+  .Project-content H1{
+    font-size: 35px !important;
+  }
+  .wrapper{
+    margin-top: -20% !important;
+  }
+   .gallery_1{
+    margin-left: 3%;
+  }
 }
 
 /*navbar*/
