@@ -1822,6 +1822,10 @@ section .animate{
 }
 
 @media ( max-width: 430px){
+.navbar-brand{
+   width: 70%;
+  height: 40px;
+}
   .Project {
     padding: 12% 5%;
 }
