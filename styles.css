@@ -1776,7 +1776,16 @@ section .animate{
   .navbar-brand{
     display: none;
   }
+.button-container-3{
+    margin-top: 40px;
+  }
  } 
+
+@media (max-width: 1600px){
+  .button-container-3{
+    margin-top: -40px;
+  }
+ }
 
 /* Responsive Design for Project and Card Sections */
 
@@ -1784,6 +1793,10 @@ section .animate{
   .Project {
       padding: 8% 5%;
       gap: 1.5em; 
+  }
+	
+ .button-container-3{
+    margin-top: 40px;
   }
 
   .card {
