@@ -34,26 +34,7 @@ window.onscroll = () => {
         }
     });
 
-    // Special case: Handle Contact section separately
-    let contactSection = document.querySelector('#contact');
-    if (contactSection) {
-        let contactOffset = contactSection.offsetTop - 110; // Increase offset to fix larger screens
-        let contactHeight = contactSection.offsetHeight;
     
-        if (window.scrollY >= contactOffset && window.scrollY < contactOffset + contactHeight) {
-            navLinks.forEach(link => link.classList.remove('active'));
-            
-            // Add active class for Contact button or link
-            let contactLink = document.querySelector('header nav a[href*="contact"]');
-            if (contactLink) {
-                contactLink.classList.add('active');
-            }
-    
-            contactSection.classList.add('show-animated');
-        } else {
-            contactSection.classList.remove('show-animated');
-        }
-    }
 
     // Handle Home section active class when scrolling to top
     if (window.scrollY === 0) {
@@ -85,10 +66,7 @@ if (contactBtn) {
             contactSection.classList.add('show-animated');
         }
     });
-} else {
-    console.warn('Contact button not found.');
 }
-
 
 
 const navbar = document.querySelector(".navbar");
