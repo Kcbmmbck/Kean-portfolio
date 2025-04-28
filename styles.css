@@ -1810,12 +1810,6 @@ section .animate{
   }
  } 
 
-@media (max-width: 1600px){
-  .button-container-3{
-    margin-top: -40px;
-  }
- }
-
 /* Responsive Design for Project and Card Sections */
 
 @media (max-width: 1024px) {
