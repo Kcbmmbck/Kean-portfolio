@@ -185,29 +185,30 @@ if (menuToggle && navLinks) {
       }
 
    // Loading page
-function goToPage(page) {
-    // Hide buttons, show loader
-    document.querySelectorAll('.animate_logo').forEach(el => el.style.display = 'none');
-    document.querySelector('.loader').style.display = 'block';
-    sessionStorage.setItem('loadingToPage', 'true');
+  function goToPage(page) {
+    // Set flag to show loader on next page
+    sessionStorage.setItem('showLoader', 'true');
 
-    // Delay and redirect
+    // Delay the redirect so the user sees the loader
     setTimeout(() => {
       window.location.href = page;
-    }, 3000);
+    }, 5000); // 5 seconds delay for loader animation
   }
 
-  // Reset the loader and show buttons again on back or reload
-  function resetUI() {
-    const loader = document.querySelector('.loader');
-    const logos = document.querySelectorAll('.animate_logo');
+  // On page load (or back, or refresh)
+  window.addEventListener('DOMContentLoaded', () => {
+    const showLoader = sessionStorage.getItem('showLoader');
 
-    if (loader) loader.style.display = 'none';
-    logos.forEach(el => el.style.display = 'inline-block');
+    if (showLoader === 'true') {
+      // Show loader and hide UI
+      document.querySelectorAll('.animate_logo').forEach(el => el.style.display = 'none');
+      document.querySelector('.loader').style.display = 'block';
 
-    sessionStorage.removeItem('loadingToPage');
-  }
-
-  // Always reset UI on page load and back navigation
-  window.addEventListener('DOMContentLoaded', resetUI);
-  window.addEventListener('pageshow', resetUI);
+      // Clear the flag to avoid showing loader again on refresh/back
+      sessionStorage.removeItem('showLoader');
+    } else {
+      // No loader: normal display
+      document.querySelectorAll('.animate_logo').forEach(el => el.style.display = 'inline-block');
+      document.querySelector('.loader').style.display = 'none';
+    }
+  });
