@@ -187,7 +187,6 @@ if (menuToggle && navLinks) {
    // Loading page
   function goToPage(page) {
     // Set flag to show loader on next page
-    sessionStorage.setItem('showLoader', 'true');
  document.querySelector('.loader').style.display = 'block';
   document.querySelector('.animate_logo').style.display = 'none';
     // Delay the redirect so the user sees the loader
@@ -196,20 +195,4 @@ if (menuToggle && navLinks) {
     }, 5000); // 5 seconds delay for loader animation
   }
 
-  // On page load (or back, or refresh)
-  window.addEventListener('DOMContentLoaded', () => {
-    const showLoader = sessionStorage.getItem('showLoader');
 
-    if (showLoader === 'true') {
-      // Show loader and hide UI
-      document.querySelectorAll('.animate_logo').forEach(el => el.style.display = 'none');
-      document.querySelector('.loader').style.display = 'block';
-
-      // Clear the flag to avoid showing loader again on refresh/back
-      sessionStorage.removeItem('showLoader');
-    } else {
-      // No loader: normal display
-      document.querySelectorAll('.animate_logo').forEach(el => el.style.display = 'inline-block');
-      document.querySelector('.loader').style.display = 'none';
-    }
-  });
