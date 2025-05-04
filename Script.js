@@ -195,6 +195,7 @@ if (menuToggle && navLinks) {
   }
 window.addEventListener('DOMContentLoaded', () => {
   document.querySelector('.loader').style.display = 'none';
+   location.reload();
 });
 
 
