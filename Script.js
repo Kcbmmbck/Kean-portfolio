@@ -186,24 +186,28 @@ if (menuToggle && navLinks) {
 
    // Loading page
 function goToPage(page) {
-  // Show loader, hide button
+  // Show loader, hide button content
   document.querySelector('.loader').style.display = 'block';
-  document.querySelector('.animate_logo').style.display = 'none'; // fixed "None" -> "none"
+  document.querySelector('.animate_logo').style.display = 'none';
 
-  // Store loading state
+  // Mark that we're navigating
   sessionStorage.setItem('isLoading', 'true');
 
   setTimeout(() => {
     window.location.href = page;
-  }, 5000); // 5 seconds delay
+  }, 5000);
 }
 
-// Stop loading if user comes back to this page
-window.addEventListener('pageshow', function () {
-  if (sessionStorage.getItem('isLoading') === 'true') {
+
+window.addEventListener('pageshow', function (event) {
+  const isRestored = event.persisted || (window.performance && performance.getEntriesByType("navigation")[0].type === "back_forward");
+
+  if (isRestored || sessionStorage.getItem('isLoading') === 'true') {
+    // Hide loader, show button
     document.querySelector('.loader').style.display = 'none';
     document.querySelector('.animate_logo').style.display = 'inline-block';
 
+    // Clear the loading flag
     sessionStorage.removeItem('isLoading');
   }
 });
