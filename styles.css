@@ -51,8 +51,7 @@ body.fade-out {
 }
 
 /*loading page*/
-.loader {
-  display: none;	
+.loader {	
   margin-top: 4vh;
   font-weight: bold;
   font-family: sans-serif;
