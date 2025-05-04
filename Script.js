@@ -190,8 +190,7 @@ function goToPage(page) {
   document.querySelector('.loader').style.display = 'block';
   document.querySelector('.animate_logo').style.display = 'none';
 
-  // Mark that we're navigating
-  sessionStorage.setItem('isLoading', 'true');
+
 
   setTimeout(() => {
     window.location.href = page;
@@ -202,12 +201,12 @@ function goToPage(page) {
 window.addEventListener('pageshow', function (event) {
   const isRestored = event.persisted || (window.performance && performance.getEntriesByType("navigation")[0].type === "back_forward");
 
-  if (isRestored || sessionStorage.getItem('isLoading') === 'true') {
+  if (isRestored || sessionStorage.getItem('loader') === 'true') {
     // Hide loader, show button
     document.querySelector('.loader').style.display = 'none';
     document.querySelector('.animate_logo').style.display = 'inline-block';
 
     // Clear the loading flag
-    sessionStorage.removeItem('isLoading');
+    sessionStorage.removeItem('loader');
   }
 });
