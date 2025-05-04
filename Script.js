@@ -184,13 +184,26 @@ if (menuToggle && navLinks) {
         document.getElementById("lightbox").style.display = "none";
       }
 
-  // loading page 
-      function goToPage(page) {
-        document.querySelector('.loader').style.display = 'block';
-        document.querySelector('.animate_logo').style.display = 'None';
-    
-        setTimeout(() => {
-          window.location.href = page;
-        }, 5000); // 5 seconds delay
-      }
-      
+   // Loading page
+function goToPage(page) {
+  // Show loader, hide button
+  document.querySelector('.loader').style.display = 'block';
+  document.querySelector('.animate_logo').style.display = 'none'; // fixed "None" -> "none"
+
+  // Store loading state
+  sessionStorage.setItem('isLoading', 'true');
+
+  setTimeout(() => {
+    window.location.href = page;
+  }, 5000); // 5 seconds delay
+}
+
+// Stop loading if user comes back to this page
+window.addEventListener('pageshow', function () {
+  if (sessionStorage.getItem('isLoading') === 'true') {
+    document.querySelector('.loader').style.display = 'none';
+    document.querySelector('.animate_logo').style.display = 'inline-block';
+
+    sessionStorage.removeItem('isLoading');
+  }
+});
