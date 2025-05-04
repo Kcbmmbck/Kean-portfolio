@@ -186,27 +186,25 @@ if (menuToggle && navLinks) {
 
    // Loading page
 function goToPage(page) {
-  // Show loader, hide button content
-  document.querySelector('.loader').style.display = 'block';
-  document.querySelector('.animate_logo').style.display = 'none';
+    // Hide all animate_logo elements
+    document.querySelectorAll('.animate_logo').forEach(el => el.style.display = 'none');
 
+    // Show loader
+    document.querySelector('.loader').style.display = 'block';
 
+    // Save loading flag
+    sessionStorage.setItem('loadingToPage', 'true');
 
-  setTimeout(() => {
-    window.location.href = page;
-  }, 5000);
-}
-
-
-window.addEventListener('pageshow', function (event) {
-  const isRestored = event.persisted || (window.performance && performance.getEntriesByType("navigation")[0].type === "back_forward");
-
-  if (isRestored || sessionStorage.getItem('loader') === 'true') {
-    // Hide loader, show button
-    document.querySelector('.loader').style.display = 'none';
-    document.querySelector('.animate_logo').style.display = 'inline-block';
-
-    // Clear the loading flag
-    sessionStorage.removeItem('loader');
+    // Redirect after delay
+    setTimeout(() => {
+      window.location.href = page;
+    }, 3000); // adjust delay as needed
   }
-});
+
+  // On back (GitHub Pages fix)
+  window.addEventListener('pageshow', function () {
+    // Always reset loader state
+    document.querySelector('.loader').style.display = 'none';
+    document.querySelectorAll('.animate_logo').forEach(el => el.style.display = 'inline-block');
+    sessionStorage.removeItem('loadingToPage');
+  });
