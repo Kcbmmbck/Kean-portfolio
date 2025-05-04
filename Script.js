@@ -186,25 +186,28 @@ if (menuToggle && navLinks) {
 
    // Loading page
 function goToPage(page) {
-    // Hide all animate_logo elements
+    // Hide buttons, show loader
     document.querySelectorAll('.animate_logo').forEach(el => el.style.display = 'none');
-
-    // Show loader
     document.querySelector('.loader').style.display = 'block';
-
-    // Save loading flag
     sessionStorage.setItem('loadingToPage', 'true');
 
-    // Redirect after delay
+    // Delay and redirect
     setTimeout(() => {
       window.location.href = page;
-    }, 3000); // adjust delay as needed
+    }, 3000);
   }
 
-  // On back (GitHub Pages fix)
-  window.addEventListener('pageshow', function () {
-    // Always reset loader state
-    document.querySelector('.loader').style.display = 'none';
-    document.querySelectorAll('.animate_logo').forEach(el => el.style.display = 'inline-block');
+  // Reset the loader and show buttons again on back or reload
+  function resetUI() {
+    const loader = document.querySelector('.loader');
+    const logos = document.querySelectorAll('.animate_logo');
+
+    if (loader) loader.style.display = 'none';
+    logos.forEach(el => el.style.display = 'inline-block');
+
     sessionStorage.removeItem('loadingToPage');
-  });
+  }
+
+  // Always reset UI on page load and back navigation
+  window.addEventListener('DOMContentLoaded', resetUI);
+  window.addEventListener('pageshow', resetUI);
