@@ -186,18 +186,10 @@ if (menuToggle && navLinks) {
 
    // Loading page
   function goToPage(page) {
-    // Set flag to show loader on next page
  document.querySelector('.loader').style.display = 'block';
-    // Delay the redirect so the user sees the loader
     setTimeout(() => {
       window.location.href = page;
-    }, 5000); // 5 seconds delay for loader animation
+    }, 5000); 
   }
-window.addEventListener('DOMContentLoaded', () => {
-  document.querySelector('.loader').style.display = 'none';
-   setTimeout(() => {
-    window.location.reload(true);
-  }, 100);
-});
 
 
