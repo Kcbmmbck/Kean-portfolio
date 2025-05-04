@@ -193,5 +193,8 @@ if (menuToggle && navLinks) {
       window.location.href = page;
     }, 5000); // 5 seconds delay for loader animation
   }
+window.addEventListener('DOMContentLoaded', () => {
+  document.querySelector('.loader').style.display = 'none';
+});
 
 
