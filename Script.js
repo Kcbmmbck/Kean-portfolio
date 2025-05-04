@@ -184,4 +184,13 @@ if (menuToggle && navLinks) {
         document.getElementById("lightbox").style.display = "none";
       }
 
+  // loading page 
+      function goToPage(page) {
+        document.querySelector('.loader').style.display = 'block';
+        document.querySelector('.animate_logo').style.display = 'None';
+    
+        setTimeout(() => {
+          window.location.href = page;
+        }, 5000); // 5 seconds delay
+      }
       
