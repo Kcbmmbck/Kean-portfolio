@@ -188,7 +188,6 @@ if (menuToggle && navLinks) {
   function goToPage(page) {
     // Set flag to show loader on next page
  document.querySelector('.loader').style.display = 'block';
-  document.querySelector('.animate_logo').style.display = 'none';
     // Delay the redirect so the user sees the loader
     setTimeout(() => {
       window.location.href = page;
