@@ -184,12 +184,6 @@ if (menuToggle && navLinks) {
         document.getElementById("lightbox").style.display = "none";
       }
 
-   // Loading page
-  function goToPage(page) {
- document.querySelector('.loader').style.display = 'block';
-    setTimeout(() => {
-      window.location.href = page;
-    }, 5000); 
-  }
+   
 
 
