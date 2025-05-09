@@ -56,7 +56,7 @@ body.fade-out {
 .Facebook::after {
   content: "Facebook";
   position: absolute;
-  bottom: 125%; /* position above the button */
+  bottom: 125%; 
   left: 50%;
   transform: translateX(-50%);
   background-color: rgb(255, 255, 255);
@@ -76,7 +76,7 @@ body.fade-out {
 .Linkedin::after {
   content: "Linkedin";
   position: absolute;
-  bottom: 125%; /* position above the button */
+  bottom: 125%; 
   left: 50%;
   transform: translateX(-50%);
   background-color: rgb(255, 255, 255);
@@ -97,7 +97,7 @@ body.fade-out {
 .Instagram::after {
   content: "Instagram";
   position: absolute;
-  bottom: 125%; /* position above the button */
+  bottom: 125%; 
   left: 50%;
   transform: translateX(-50%);
   background-color: rgb(255, 255, 255);
@@ -547,7 +547,7 @@ body.fade-out {
 }
 
 .footer-links a i {
-  margin-right: 8px; /* Space between icon and text */
+  margin-right: 8px; 
 }
 
 .footer-links a:hover {
@@ -708,7 +708,7 @@ li,a,button{
   justify-content: center;
   align-items: center;
   text-align: center;
-  height: 80vh; /* Adjust height as needed */
+  height: 80vh; 
   flex-direction: column;
 }
 .chat-btn_1 {
@@ -1075,10 +1075,10 @@ margin: 2em 0 3em;
 .wrapper{
  
   display: flex;
-  flex-wrap: wrap; /* Ensures items wrap on smaller screens */
-  justify-content: center; /* Centers cards */
-  gap: 2em; /* Adjust spacing between cards */
-  width: 100%; /* Ensures the wrapper takes full width */
+  flex-wrap: wrap; 
+  justify-content: center; 
+  gap: 2em; 
+  width: 100%;
   
 }
 
@@ -1093,12 +1093,12 @@ margin: 2em 0 3em;
   align-items: flex-end;
   box-shadow: -10px 7px 10px rgb(0,0,0,0.5);
   transition: 0.5s ease-in-out;
-  margin: 0 auto; /* Centers each card */
+  margin: 0 auto; 
   
 }
 
 .card:hover{
-  transform: translateY(-10px); /* Reduced hover effect for better usability */
+  transform: translateY(-10px); 
 }
 .card::before{
   content: "";
@@ -1118,8 +1118,8 @@ margin: 2em 0 3em;
 }
 
 .card img{
-  width: 100%; /* Ensures image adjusts to card size */
-  height: auto; /* Maintains aspect ratio */
+  width: 100%; 
+  height: auto; 
   object-fit: cover;
   position: absolute;
   top: 0;
@@ -1133,7 +1133,7 @@ margin: 2em 0 3em;
   opacity: 0;
   transform: translateY(30px);
   transition: 0.5s all;
-  text-align: center; /* Centers the text inside the card */
+  text-align: center; 
 }
 
 .card:hover .info{
@@ -1354,16 +1354,16 @@ padding-left: 20px;
 
 .contact_us_green .btn-wrapper {
 display: flex;
-justify-content: center; /* Center align buttons */
-gap: 20px; /* Space between buttons */
-margin-top: 20px; /* Add space above buttons */
+justify-content: center; 
+gap: 20px; 
+margin-top: 20px; 
 
 }
 
 /* Common button styles */
 .contact_us_green .submit-btn,
 .contact_us_green .Reset-btn {
-width: 290px; /* Fixed width */
+width: 290px; 
 height: 60px;
 font-size: 18px;
 font-weight: 700;
@@ -1376,21 +1376,21 @@ transition: background-color 0.3s ease;
 }
 /* Submit Button - Green */
 .contact_us_green .submit-btn {
-background-color: #28a745; /* Green */
+background-color: #28a745; 
 }
 
 .contact_us_green .submit-btn:hover {
-background-color: #218838; /* Darker Green on Hover */
+background-color: #218838; 
 }
 
 /* Reset Button - Red */
 .contact_us_green .Reset-btn {
-background-color: #dc3545; /* Red */
+background-color: #dc3545; 
 left: 100px;
 }
 
 .contact_us_green .Reset-btn:hover {
-background-color: #c82333; /* Darker Red on Hover */
+background-color: #c82333; 
 }
 
 .contact_us_green .text-blk.input-title {
@@ -1981,13 +1981,13 @@ section .animate{
     
   }
   .contact_us_green .btn-wrapper {
-    flex-direction: column; /* Stack buttons vertically on smaller screens */
-    gap: 15px; /* Reduce gap for small devices */
+    flex-direction: column; 
+    gap: 15px; 
     width: 100%;
 }
 .contact_us_green .submit-btn,
 .contact_us_green .Reset-btn {
-  width: 100%; /* Make buttons responsive */
+  width: 100%; 
   min-width: unset;
 }
 /* Responsive Adjustments for Certifications */
