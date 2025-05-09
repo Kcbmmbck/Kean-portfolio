@@ -14,7 +14,6 @@ window.onscroll = () => {
         console.warn('No nav links found.');
     }
 
-    // Check scroll position and add/remove active class dynamically
     sections.forEach(sec => {
         let top = window.scrollY;
         let offset = sec.offsetTop - 100;
@@ -36,19 +35,19 @@ window.onscroll = () => {
 
     
 
-    // Handle Home section active class when scrolling to top
+ 
     if (window.scrollY === 0) {
         navLinks.forEach(link => link.classList.remove('active'));
         document.querySelector('header nav a[href*="Home"]').classList.add('active');
     }
 };
 
-// Add smooth scroll for Contact button and add active class when clicked
+
 let contactBtn = document.querySelector('.btn-primary');
 
 if (contactBtn) {
     contactBtn.addEventListener('click', function (e) {
-        e.preventDefault(); // Prevent default link behavior
+        e.preventDefault(); 
         let contactSection = document.querySelector('#contact');
 
         if (contactSection) {
@@ -59,10 +58,10 @@ if (contactBtn) {
 
             
 
-            // Add active class to Contact button
+          
             contactBtn.classList.add('active');
 
-            // Add animation to Contact section
+           
             contactSection.classList.add('show-animated');
         }
     });
@@ -75,9 +74,9 @@ window.addEventListener("scroll", function () {
     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
     if (scrollTop > lastScrollTop) {
-        navbar.style.top = "0"; // Hide navbar when scrolling down
+        navbar.style.top = "0"; 
     } else {
-        navbar.style.top = "0"; // Show navbar when scrolling up
+        navbar.style.top = "0"; 
     }
 
     lastScrollTop = scrollTop;
@@ -95,22 +94,22 @@ if (menuToggle && navLinks) {
 } 
 
 
-  // Fade-out effect before navigating
+  
   function fadeNavigate(event, element) {
-    event.preventDefault(); // Stop the default navigation
+    event.preventDefault(); 
     document.body.classList.add("fade-out");
     const url = element.getAttribute("href");
     setTimeout(() => {
       window.location.href = url;
-    }, 500); // Match the fade-out duration
+    }, 500); 
   }
 
-    // Fade-out effect before navigating
+    
     function goToPage(url) {
         document.body.classList.add("fade-out");
         setTimeout(() => {
           window.location.href = url;
-        }, 500); // Match animation duration (0.5s)
+        }, 500);
       }
       
       const form = document.getElementById("contact-form");
@@ -145,7 +144,7 @@ if (menuToggle && navLinks) {
           }
         });
       
-       // Optional: if all fields filled, show thank you
+       
         if (allFilled) {
           const firstName = document.getElementById("firstName").value.trim();
           thankYouBox.textContent = `✅ Thank you, ${firstName}! Your message was received.`;
@@ -157,7 +156,7 @@ if (menuToggle && navLinks) {
     
       function resetForm() {
         const form = document.getElementById("contact-form");
-        form.reset(); // clears inputs
+        form.reset(); 
       
         const errorMessages = document.querySelectorAll(".field-error");
         const inputs = document.querySelectorAll(".input, .textinput");
@@ -171,7 +170,7 @@ if (menuToggle && navLinks) {
           input.classList.remove("error-border");
         });
         thankYouBox.style.display = "none";
-        thankYouBox.textContent = ""; // optional: clear the message
+        thankYouBox.textContent = ""; 
       }
 
       function openLightbox(src) {
