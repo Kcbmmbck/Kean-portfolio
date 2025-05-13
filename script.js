@@ -123,22 +123,37 @@ if (menuToggle && navLinks) {
         document.getElementById("lightbox").style.display = "none";
       }
 
-document.addEventListener("DOMContentLoaded", function () {
-    const navbarCollapse = document.getElementById("navbarNav");
-    const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
+// -------
+ document.addEventListener("DOMContentLoaded", function () {
+    const offset = document.querySelector('.navbar').offsetHeight;
+    const links = document.querySelectorAll('.nav-link[href^="#"]');
 
-    if (window.innerWidth <= 1000) {
-      navLinks.forEach(link => {
-        link.addEventListener("click", function () {
-          const collapse = bootstrap.Collapse.getInstance(navbarCollapse);
-          if (collapse) {
-            collapse.hide(); 
+    links.forEach(link => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute("href").substring(1);
+        const target = document.getElementById(targetId);
+
+        if (target) {
+          const elementPosition = target.offsetTop;
+          const offsetPosition = elementPosition - offset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+          });
+
+          if (window.innerWidth <= 1000) {
+            const navbarCollapse = document.getElementById("navbarNav");
+            const collapse = bootstrap.Collapse.getInstance(navbarCollapse);
+            if (collapse) collapse.hide();
           }
-        });
+        }
       });
-    }
+    });
   });
 
+// -------
   const disabledKeys = ["x","s","J", "u", "I"]; 
   const Alert = e => {
     e.preventDefault(); 
