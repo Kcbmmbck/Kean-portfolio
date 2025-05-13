@@ -262,9 +262,9 @@
         <div class="footer-content">
           <p>&copy; 2025 Kean Moscoso. All rights reserved.</p>
           <div class="footer-links">
-            <a href="https://www.facebook.com/HashiPhoniex"><i class="fab fa-facebook"></i> Facebook</a> |
-            <a href="https://www.instagram.com/king.kcbm_24"><i class="fab fa-instagram"></i> Instagram</a> |
-            <a href="https://www.linkedin.com/in/kean-christopher-moscoso/"><i class="fab fa-linkedin"></i> Linkedin</a>
+            <a href="https://www.facebook.com/HashiPhoniex" target="_blank"> Facebook</a> |
+            <a href="https://www.instagram.com/king.kcbm_24" target="_blank"> Instagram</a> |
+            <a href="https://www.linkedin.com/in/kean-christopher-moscoso/" target="_blank"> Linkedin</a>
           </div>
         </div>
       </footer>
@@ -285,7 +285,7 @@
 
   // Disable right-click except in the #contact section
   document.addEventListener("contextmenu", e => {
-    if (!e.target.closest("#contact")) {
+    if (!e.target.closest("Contact")) {
       Alert(e);
     }
   });
@@ -298,7 +298,7 @@
       e.key === "F12" || 
       (e.ctrlKey && e.shiftKey && e.key === "I") 
     ) {
-      
+      e.preventDefault(); 
     }
   });
 </script>
