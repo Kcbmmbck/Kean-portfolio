@@ -274,34 +274,7 @@
         particlesJS.load("particles-js", "particle.json");
       </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="Script.js"></script>
-
-<!-- Warning -->
-<script>
-  const disabledKeys = ["x","s","J", "u", "I"]; 
-  const Alert = e => {
-    e.preventDefault(); 
-  };
-
-  // Disable right-click except in the #contact section
-  document.addEventListener("contextmenu", e => {
-    if (!e.target.closest("Contact")) {
-      Alert(e);
-    }
-  });
-
-  // Disable specific key combinations
-  document.addEventListener("keydown", e => {
-    if (
-      (e.ctrlKey && disabledKeys.includes(e.key)) || 
-      (e.metaKey && disabledKeys.includes(e.key)) || 
-      e.key === "F12" || 
-      (e.ctrlKey && e.shiftKey && e.key === "I") 
-    ) {
-      e.preventDefault(); 
-    }
-  });
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
