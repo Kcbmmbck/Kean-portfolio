@@ -111,67 +111,7 @@ if (menuToggle && navLinks) {
           window.location.href = url;
         }, 500);
       }
-      
-      const form = document.getElementById("contact-form");
-      const thankYouBox = document.getElementById("thankYouMessage");
-    
-      form.addEventListener("submit", function (event) {
-        event.preventDefault();
-      
-        const fields = [
-          { id: "firstName", name: "First Name" },
-          { id: "lastName", name: "Last Name" },
-          { id: "email", name: "Email" },
-          { id: "phone", name: "Phone Number" },
-          { id: "message", name: "Message" },
-        ];
-      
-        let allFilled = true;
-      
-        fields.forEach(field => {
-          const input = document.getElementById(field.id);
-          const errorSpan = document.getElementById("error-" + field.id);
-      
-          if (input.value.trim() === "") {
-            input.classList.add("error-border");
-            errorSpan.textContent = "⚠️ This field is required.";
-            errorSpan.style.display = "block";
-            allFilled = false;
-          } else {
-            input.classList.remove("error-border");
-            errorSpan.textContent = "";
-            errorSpan.style.display = "none";
-          }
-        });
-      
-       
-        if (allFilled) {
-          const firstName = document.getElementById("firstName").value.trim();
-          thankYouBox.textContent = `✅ Thank you, ${firstName}! Your message was received.`;
-          thankYouBox.style.display = "block";
-        } else {
-          thankYouBox.style.display = "none";
-        }
-      });
-    
-      function resetForm() {
-        const form = document.getElementById("contact-form");
-        form.reset(); 
-      
-        const errorMessages = document.querySelectorAll(".field-error");
-        const inputs = document.querySelectorAll(".input, .textinput");
-      
-        errorMessages.forEach(span => {
-          span.textContent = "";
-          span.style.display = "none";
-        });
-      
-        inputs.forEach(input => {
-          input.classList.remove("error-border");
-        });
-        thankYouBox.style.display = "none";
-        thankYouBox.textContent = ""; 
-      }
+
 
       function openLightbox(src) {
         document.getElementById("lightbox-img").src = src;
@@ -183,6 +123,42 @@ if (menuToggle && navLinks) {
         document.getElementById("lightbox").style.display = "none";
       }
 
-   
+document.addEventListener("DOMContentLoaded", function () {
+    const navbarCollapse = document.getElementById("navbarNav");
+    const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
+
+    if (window.innerWidth <= 760) {
+      navLinks.forEach(link => {
+        link.addEventListener("click", function () {
+          const collapse = bootstrap.Collapse.getInstance(navbarCollapse);
+          if (collapse) {
+            collapse.hide(); 
+          }
+        });
+      });
+    }
+  });
+
+  const disabledKeys = ["x","s","J", "u", "I"]; 
+  const Alert = e => {
+    e.preventDefault(); 
+  };
+
+  document.addEventListener("contextmenu", e => {
+    if (!e.target.closest("Contact")) {
+      Alert(e);
+    }
+  });
+
+  document.addEventListener("keydown", e => {
+    if (
+      (e.ctrlKey && disabledKeys.includes(e.key)) || 
+      (e.metaKey && disabledKeys.includes(e.key)) || 
+      e.key === "F12" || 
+      (e.ctrlKey && e.shiftKey && e.key === "I") 
+    ) {
+      e.preventDefault(); 
+    }
+  });
 
 
