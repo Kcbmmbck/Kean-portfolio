@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const navbarCollapse = document.getElementById("navbarNav");
     const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
 
-    if (window.innerWidth <= 760) {
+    if (window.innerWidth <= 1000) {
       navLinks.forEach(link => {
         link.addEventListener("click", function () {
           const collapse = bootstrap.Collapse.getInstance(navbarCollapse);
