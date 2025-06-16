@@ -1,0 +1,10 @@
+{
+  "rewrites": [
+    {
+      "source": "/Portfolio",
+      "destination": "/Portfolio.html"
+    }
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
+}
