@@ -152,7 +152,7 @@ body.fade-out {
 
 .gallery_1{
   width: 100%;
-  min-height: 100vh;
+  min-height: 90vh;
   display: flex;
   position: relative;
   justify-content: center;
@@ -1049,109 +1049,6 @@ margin: 2em 0 3em;
 
 
 
-/* Project*/
-
-.Project {
-  width: 100%;
-  min-height: 100vh;
-  align-items: center;
-  padding: 50px 15% 0;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.Project-content{
-  justify-content: center;
-}
-
-.Project-content h1{
-  font-size: 90px;
-  color: white;
- text-align: center;
- margin-bottom: 150px;
- 
-}
-
-.wrapper{
- 
-  display: flex;
-  flex-wrap: wrap; 
-  justify-content: center; 
-  gap: 2em; 
-  width: 100%;
-  
-}
-
-
-.card{
-  width: 310px;
-  height: 180px;
-  padding: 2rem 2rem;
-  background: #323946;
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-  box-shadow: -10px 7px 10px rgb(0,0,0,0.5);
-  transition: 0.5s ease-in-out;
-  margin: 0 auto; 
-  
-}
-
-.card:hover{
-  transform: translateY(-10px); 
-}
-.card::before{
-  content: "";
-  position: absolute;
-  top:0;
-  left:0;
-  display: block;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom,black,darkgray);
-  z-index: 2;
-  transition: 0.5s all;
-  opacity: 0;
-}
-.card:hover::before{
-  opacity: 1;
-}
-
-.card img{
-  width: 100%; 
-  height: auto; 
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  
-}
-.card .info{
-  position: relative;
-  z-index: 3;
-  color: #fff;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: 0.5s all;
-  text-align: center; 
-}
-
-.card:hover .info{
-  opacity: 1;
-  transform: translateY(0px);
-}
-
-.card .info h1{
-  margin: 0;
-  font-size: 18px;
-}
-.card .info p{
-  letter-spacing: 1px;
-  font-size: 10px;
-  margin-top: 7px;
-  margin-bottom: 20px;
-  
-}
 
 /* Contact */
 
@@ -1162,7 +1059,7 @@ min-height: 90vh;
 display: flex;
 align-items: center;
 justify-content: center;
-
+margin-top: 10%;
 }
 
 .container_5 {
@@ -1494,9 +1391,7 @@ a {
   transform: translateY(100%);
 }
 
-.Project-content H1{
-  transform: translateY(50%);
-}
+
 
 .Home.show-animated .animate {
   transform: translateY(0);
@@ -1610,9 +1505,7 @@ section .animate{
   .grid-container{
     width: 50% !important; 
   }
-  .Project-content H1{
-    font-size: 35px !important;
-  }
+  
   .wrapper{
     margin-top: -20% !important;
   }
@@ -1630,96 +1523,6 @@ section .animate{
     margin-top: 40px;
   }
  } 
-
-/* Responsive Design for Project and Card Sections */
-
-@media (max-width: 1024px) {
-  .Project {
-      padding: 8% 5%;
-      gap: 1.5em; 
-  }
-	
- .button-container-3{
-    margin-top: 40px;
-  }
-
-  .card {
-      max-width: 280px; 
-  }
-
-  .card .info h1 {
-      font-size: 16px; 
-  }
-
-  .card .info p {
-      font-size: 12px;
-  }
-}
-
-@media (max-width: 768px) {
-  .Project {
-      padding: 10% 5%;
-  }
-
-  .wrapper {
-      gap: 1em; 
-  }
-
-  .card {
-      max-width: 250px; 
-  }
-
-  .card .info h1 {
-      font-size: 14px;
-  }
-
-  .card .info p {
-      font-size: 12px;
-  }
-}
-
-@media ( max-width: 430px){
-.navbar-brand img{
-   width: 10%;
-  height: 40px;
-}
-  .Project {
-    padding: 12% 5%;
-}
-
-.card {
-    max-width: 200px; 
-}
-
-.card .info h1 {
-    font-size: 12px;
-}
-
-.card .info p {
-    font-size: 10px;
-}
-
-}
-
-@media (max-width: 480px){
-  .Project {
-      padding: 12% 5%;
-  }
-
-  .card {
-      max-width: 200px; 
-  }
-
-  .card .info h1 {
-      font-size: 12px;
-  }
-
-  .card .info p {
-      font-size: 10px;
-  }
-}
-
-
 
 /* Responsive Adjustments for Certifications */
 @media (max-width: 1024px) {
@@ -2050,3 +1853,109 @@ body {
     width: 100%;
   }
 }
+
+ /* Project Section Styling */
+        .project-section {
+            padding: 4rem 1rem; 
+            
+        }
+
+        .project-container {
+            max-width: 80rem; 
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1.5rem; 
+            padding-right: 1.5rem; 
+        }
+
+        /* Project Section Title */
+        .project-title {
+            text-align: center;
+            font-size: 62px !important;
+            line-height: 5.5rem;
+            color: #ffffff; 
+            margin-bottom: 3rem; 
+            opacity: 0; 
+            transform: translateY(20px); 
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        @media (min-width: 640px) { 
+            .project-title {
+                font-size: 3rem; 
+                line-height: 1;
+            }
+            .project-container {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) { 
+            .project-container {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+        }
+
+        /* Projects Grid Wrapper */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr; 
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) { 
+            .projects-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr)); /
+            }
+        }
+
+        @media (min-width: 1024px) { 
+            .projects-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr)); 
+            }
+        }
+
+        /* Project Card Styling */
+        .project-card {
+            background-color: #ffffff; 
+            border-radius: 0.75rem; 
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); 
+            overflow: hidden;
+            transform: scale(1); 
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; 
+            opacity: 0; 
+            transform: translateY(20px); 
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05); 
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); 
+        }
+
+        .project-card img {
+            width: 100%; 
+            height: 12rem;
+            object-fit: cover; 
+        }
+
+        .project-card-content {
+            padding: 1.5rem; 
+        }
+
+       .project-card-content h2 {
+            font-size: 1.5rem; 
+            line-height: 2rem;
+            font-weight: 600; 
+            color: #1f2937; 
+            margin-bottom: 0.5rem; 
+            text-align: center; 
+        }
+
+        .project-card-content p {
+            color: #4b5563; 
+            font-size: 1rem; 
+            line-height: 1.625; 
+        }
