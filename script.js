@@ -33,6 +33,35 @@ window.onscroll = () => {
         }
     });
 
+      var videoModal = document.getElementById("videoModal");
+
+        // Function to open the modal
+        function openVideoModal(event) {
+            event.preventDefault(); // Prevent default link behavior
+            videoModal.style.display = "flex"; // Use flex to center content
+            // Optional: Start video playback when modal opens
+            var videoElement = videoModal.querySelector('video');
+            if (videoElement) {
+                videoElement.play();
+            }
+        }
+
+        // Function to close the modal
+        function closeVideoModal() {
+            // Optional: Pause video playback when modal closes
+            var videoElement = videoModal.querySelector('video');
+            if (videoElement) {
+                videoElement.pause();
+            }
+            videoModal.style.display = "none";
+        }
+
+        // Close the modal if user clicks outside of it
+        window.onclick = function(event) {
+            if (event.target == videoModal) {
+                closeVideoModal(); // Use the close function to also pause the video
+            }
+        }
     
 
  
