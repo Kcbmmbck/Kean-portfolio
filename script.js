@@ -177,47 +177,25 @@ if (menuToggle && navLinks) {
     }
   });
 
-var videoModal = document.getElementById("videoModal");
+  var videoModal = document.getElementById("videoModal");
 
         // Function to open the modal
         function openVideoModal(event) {
             event.preventDefault(); // Prevent default link behavior
             videoModal.style.display = "flex"; // Use flex to center content
-
-            var videoIframe = videoModal.querySelector('iframe');
-            var videoContainer = document.getElementById('video-container'); // Get the video container
-
-            if (videoIframe) {
-                // Autoplay is handled by the 'autoplay=1' parameter in the iframe src.
-                // Mobile browsers may still require a user tap on the video itself to start playback.
-
-                // Attempt to go fullscreen with the video container
-                // Note: Fullscreen for iframes can be tricky due to cross-origin policies.
-                // The 'allowfullscreen' attribute is crucial.
-                if (videoContainer.requestFullscreen) {
-                    videoContainer.requestFullscreen();
-                } else if (videoContainer.mozRequestFullScreen) { /* Firefox */
-                    videoContainer.mozRequestFullScreen();
-                } else if (videoContainer.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
-                    videoContainer.webkitRequestFullscreen();
-                } else if (videoContainer.msRequestFullscreen) { /* IE/Edge */
-                    videoContainer.msRequestFullscreen();
-                }
+            // Optional: Start video playback when modal opens
+            var videoElement = videoModal.querySelector('video');
+            if (videoElement) {
+                videoElement.play();
             }
         }
 
         // Function to close the modal
         function closeVideoModal() {
-            // Pause the iframe video by reloading its src to stop playback
-            var videoIframe = videoModal.querySelector('iframe');
-            if (videoIframe) {
-                // To stop Google Drive video playback, you can try setting src to empty and then back,
-                // or remove and re-add the iframe. A simpler way is to just let the modal close.
-                // If the video continues playing in the background, you might need a more complex solution
-                // like dynamically creating/destroying the iframe.
-                var currentSrc = videoIframe.src;
-                videoIframe.src = ''; // Clear src to stop playback
-                videoIframe.src = currentSrc; // Reset src to allow re-playback on next open
+            // Optional: Pause video playback when modal closes
+            var videoElement = videoModal.querySelector('video');
+            if (videoElement) {
+                videoElement.pause();
             }
             videoModal.style.display = "none";
         }
@@ -228,4 +206,5 @@ var videoModal = document.getElementById("videoModal");
                 closeVideoModal(); // Use the close function to also pause the video
             }
         }
+
 
