@@ -1,9 +1,12 @@
 {
   "rewrites": [
-    {
-      "source": "/Portfolio",
-      "destination": "/Portfolio.html"
-    }
+    { "source": "/Home", "destination": "/Home.html" },
+    { "source": "/About", "destination": "/About-Me.html" },
+    { "source": "/Contact", "destination": "/Contact.html" },
+    { "source": "/Certificate", "destination": "/Certificate.html" },
+    { "source": "/Project", "destination": "/Project.html" },
+    { "source": "/MySkills", "destination": "/MySkills.html" },
+    { "source": "/index", "destination": "/index.html" }
   ],
   "cleanUrls": true,
   "trailingSlash": false
