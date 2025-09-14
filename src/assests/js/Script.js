@@ -87,4 +87,9 @@ document.addEventListener("contextmenu", e => {
   if (e.ctrlKey || e.shiftKey) {
     Alert(e);
   }
+
 });
+
+function goToPage(page) {
+    window.location.href = page; // Redirects to the given page
+  }
