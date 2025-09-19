@@ -30,19 +30,52 @@
         });
         // -------------------------------------------------------- 
 
-   document.querySelectorAll(".btn-proj").forEach(btn => {
+  document.querySelectorAll(".btn-proj").forEach(btn => {
   btn.addEventListener("click", function() {
-    const videoModal = document.getElementById("videoModal");
-    const video = document.getElementById("videoPlayer");
-    const source = video.querySelector("source");
-    
-    source.src = this.getAttribute("data-video-src");
-    video.load();
-    video.play();
-    videoModal.style.display = "flex";
+    const videoSrc = this.getAttribute("data-video-src");
+    const imageSrc = this.getAttribute("data-image-src");
+
+    // Open video if data-video-src exists
+    if (videoSrc) {
+      const videoModal = document.getElementById("videoModal");
+      const video = document.getElementById("videoPlayer");
+      const source = video.querySelector("source");
+
+      source.src = videoSrc;
+      video.load();
+      video.play();
+      videoModal.style.display = "flex";
+    }
+
+    // Open image if data-image-src exists
+    if (imageSrc) {
+      const imageModal = document.getElementById("imageModal");
+      const imageViewer = document.getElementById("imageViewer");
+
+      imageViewer.src = imageSrc;
+      imageModal.style.display = "flex";
+    }
   });
 });
 
+// Close Video Modal
+document.getElementById("closeModal").addEventListener("click", function() {
+  const videoModal = document.getElementById("videoModal");
+  const video = document.getElementById("videoPlayer");
+
+  video.pause();
+  video.currentTime = 0;
+  videoModal.style.display = "none";
+});
+
+// Close Image Modal
+document.getElementById("closeImageModal").addEventListener("click", function() {
+  const imageModal = document.getElementById("imageModal");
+  const imageViewer = document.getElementById("imageViewer");
+
+  imageViewer.src = ""; // clear image
+  imageModal.style.display = "none";
+});
 document.getElementById("closeModal").addEventListener("click", function() {
   const videoModal = document.getElementById("videoModal");
   const video = document.getElementById("videoPlayer");
@@ -93,3 +126,4 @@ document.addEventListener("contextmenu", e => {
 function goToPage(page) {
     window.location.href = page; // Redirects to the given page
   }
+
