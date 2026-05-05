@@ -126,4 +126,3 @@ document.addEventListener("contextmenu", e => {
 function goToPage(page) {
     window.location.href = page; // Redirects to the given page
   }
-

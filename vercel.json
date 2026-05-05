@@ -6,7 +6,8 @@
     { "source": "/Certificate", "destination": "/Certificate.html" },
     { "source": "/Project", "destination": "/Project.html" },
     { "source": "/MySkills", "destination": "/MySkills.html" },
-    { "source": "/index", "destination": "/index.html" }
+    { "source": "/index", "destination": "/index.html" },
+    { "source": "/Training", "destination": "/Training.html" }
   ],
   "cleanUrls": true,
   "trailingSlash": false

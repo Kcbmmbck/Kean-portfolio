@@ -28,6 +28,7 @@
                     <li class="navbar-item"><a href="/About-Me" class="navbar-link">About Me</a></li>
                     <li class="navbar-item"><a href="/MySkills" class="navbar-link">My Skills</a></li>
                     <li class="navbar-item"><a href="/Certificate" class="navbar-link">Certificate</a></li>
+                    <li class="navbar-item"><a href="/Training" class="navbar-link">Training</a></li>
                     <li class="navbar-item"><a href="/Project" class="navbar-link">Project</a></li>
                     <li class="navbar-item contact-btn"><a href="/Contact" class="navbar-link">Contact</a></li>
                 </ul>
@@ -84,13 +85,64 @@
 </footer>
     
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script> 
+// Particles
+       if (typeof particlesJS !== 'undefined') {
+            particlesJS("particles-js", {
+                particles: {
+                    number: { value: 55, density: { enable: true, value_area: 900 } },
+                    color: { value: ["#ffffff", "#ffffff", "#ffffff"] },
+                    shape: { type: "circle" },
+                    opacity: { value: 0.35, random: true, anim: { enable: true, speed: 0.6, opacity_min: 0.05, sync: false } },
+                    size: { value: 5, random: true },
+                    line_linked: { enable: true, distance: 140, color: "#ffffff", opacity: 0.07, width: 1 },
+                    move: { enable: true, speed: 0.7, direction: "none", random: true, straight: false, out_mode: "out" }
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: false }, resize: true },
+                    modes: { repulse: { distance: 80, duration: 0.4 } }
+                },
+                retina_detect: true
+            });
+        }
+
+         // Hamburger
+        function toggleMenu() {
+            document.getElementById('navMenu').classList.toggle('open');
+        }
+ 
+        // Scroll reveal
+        const blocks = document.querySelectorAll('[data-animate]');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => entry.target.classList.add('visible'), i * 120);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        blocks.forEach(b => observer.observe(b));
+ 
+        // Lightbox
+        function openLightbox(card) {
+            const img = card.querySelector('img');
+            document.getElementById('lightboxImg').src = img.src;
+            document.getElementById('lightboxImg').alt = img.alt;
+            document.getElementById('lightbox').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+ 
+        function closeLightbox(e) {
+            if (!e || e.target !== document.getElementById('lightboxImg')) {
+                document.getElementById('lightbox').classList.remove('open');
+                document.body.style.overflow = '';
+            }
+        }
+
+        </script>
 <script>
-  particlesJS.load("particles-js", "src/assests/json/particlesjs-config.json");
-</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="src/assets/js/script.js"></script>
-<script>
-// This is Touchscreen with close navbar
+
      window.addEventListener('pageshow', function(event) {
         document.body.classList.remove('fade-out');
      });
@@ -99,7 +151,7 @@
       document.body.classList.add("fade-out");
       setTimeout(() => {
         window.location.href = url;
-      }, 500); // Match animation duration (0.5s)
+      }, 500); 
     }
   </script>
 
