@@ -55,15 +55,15 @@
             <!-- Stats -->
             <div class="proj-stats">
                 <div class="proj-stat">
-                    <span class="proj-stat-num">7</span>
+                    <span class="proj-stat-num" id="counting">0</span>
                     <span class="proj-stat-label">Projects</span>
                 </div>
                 <div class="proj-stat">
-                    <span class="proj-stat-num">4</span>
+                    <span class="proj-stat-num " id="counting1">0</span>
                     <span class="proj-stat-label">Languages</span>
                 </div>
                 <div class="proj-stat">
-                    <span class="proj-stat-num">3</span>
+                    <span class="proj-stat-num" id="counting2">0</span>
                     <span class="proj-stat-label">Categories</span>
                 </div>
             </div>
@@ -90,7 +90,7 @@
                     <div class="proj-body">
                         <h3 class="proj-title">Snow The House</h3>
                         <p class="proj-description">An OpenGL program in Dev-C++ rendering a full snowy scene — houses, trees, wind turbines, and animated snowfall using graphical primitives.</p>
-                        <div class="proj-skills">
+                        <div class="proj-skills category-programming">
                             <span class="skill-tag">C++</span>
                             <span class="skill-tag">OpenGL</span>
                         </div>
@@ -112,7 +112,7 @@
                     <div class="proj-body">
                         <h3 class="proj-title">Showing the Students Grade</h3>
                         <p class="proj-description">A student record system with add/delete operations, designed to store grades and serve as a reference for report cards.</p>
-                        <div class="proj-skills">
+                        <div class="proj-skills category-programming">
                             <span class="skill-tag">Java</span>
                         </div>
                         <button class="btn-proj" data-video-src="src/assests/media/video/Kean Moscoso - Showing the Students Grade.mp4">
@@ -133,7 +133,7 @@
                     <div class="proj-body">
                         <h3 class="proj-title">ATM Bank</h3>
                         <p class="proj-description">A console-based ATM system in C++ — sign up, log in, check balance, deposit, withdraw, and change PIN, all in one clean CLI application.</p>
-                        <div class="proj-skills">
+                        <div class="proj-skills category-programming">
                             <span class="skill-tag">C++</span>
                         </div>
                         <button class="btn-proj" data-video-src="src/assests/media/video/Kean Moscoso- ATM BANK.mp4">
@@ -154,7 +154,7 @@
                     <div class="proj-body">
                         <h3 class="proj-title">Break Fast — Pancake Sample</h3>
                         <p class="proj-description">A product advertisement poster promoting 100% natural organic honey — featuring price, packaging details, and a bold call-to-action.</p>
-                        <div class="proj-skills">
+                        <div class="proj-skills category-design">
                             <span class="skill-tag">Canva Pro</span>
                             <span class="skill-tag">Poster Design</span>
                         </div>
@@ -176,7 +176,7 @@
                     <div class="proj-body">
                         <h3 class="proj-title">Honey Sample</h3>
                         <p class="proj-description">A food poster promoting breakfast options — pancakes with honey, cheese, and sugar — styled with appetising visuals and modern typography.</p>
-                        <div class="proj-skills">
+                        <div class="proj-skills category-design">
                             <span class="skill-tag">Canva Pro</span>
                             <span class="skill-tag">Food Design</span>
                         </div>
@@ -198,7 +198,7 @@
                     <div class="proj-body">
                         <h3 class="proj-title">Digital Media</h3>
                         <p class="proj-description">A personal branding design inspired by social media — showcasing profile presentation, engagement elements, and professional networking icons.</p>
-                        <div class="proj-skills">
+                        <div class="proj-skills category-design">
                             <span class="skill-tag">Canva Pro</span>
                             <span class="skill-tag">Branding</span>
                         </div>
@@ -220,7 +220,7 @@
                     <div class="proj-body">
                         <h3 class="proj-title">Simple My Website</h3>
                         <p class="proj-description">A foundational website showcasing HTML structure, CSS styling, and simple interactive JavaScript elements — a first step into web development.</p>
-                        <div class="proj-skills">
+                        <div class="proj-skills category-programming">
                             <span class="skill-tag">HTML</span>
                             <span class="skill-tag">CSS</span>
                             <span class="skill-tag">JavaScript</span>
@@ -394,5 +394,70 @@
     </script>
 
     <script src="src/assests/js/Script.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+    const totalCerts = document.querySelectorAll('.category-programming').length;
+
+    const counter = document.getElementById('counting1');
+
+    let current = 0;
+
+    const update = () => {
+        current++;
+        counter.innerText = current;
+
+        if (current < totalCerts) {
+            setTimeout(update, 100);
+        }
+    };
+
+    update();
+});
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+    const totalCerts = document.querySelectorAll('.proj-title').length;
+
+    const counter = document.getElementById('counting');
+
+    let current = 0;
+
+    const update = () => {
+        current++;
+        counter.innerText = current;
+
+        if (current < totalCerts) {
+            setTimeout(update, 100);
+        }
+    };
+
+    update();
+});
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+    const totalCerts = document.querySelectorAll('.category-design').length;
+
+    const counter = document.getElementById('counting2');
+
+    let current = 0;
+
+    const update = () => {
+        current++;
+        counter.innerText = current;
+
+        if (current < totalCerts) {
+            setTimeout(update, 100);
+        }
+    };
+
+    update();
+});
+    </script>
 </body>
 </html>
