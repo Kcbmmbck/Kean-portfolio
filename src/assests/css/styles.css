@@ -5395,3 +5395,13 @@ li, a, button {
             .proj-stat::after { display: none; }
             .proj-header { margin-bottom: 40px; }
         }
+
+        #certCount {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #00fff0;
+    letter-spacing: 2px;
+    font-family: "Courier New", monospace;
+
+    transition: text-shadow 0.2s ease, transform 0.1s ease;
+}

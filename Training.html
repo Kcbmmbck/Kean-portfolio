@@ -275,22 +275,72 @@
     <script>
     document.addEventListener("DOMContentLoaded", () => {
 
-    const internships = document.querySelectorAll('.internship-block').length;
-
+    const totalCerts = document.querySelectorAll('.internship-block').length;
     const counter = document.getElementById('counting');
 
-    let current = 0;
+    let started = false;
 
-    const update = () => {
-        current++;
-        counter.innerText = current;
-
-        if (current < internships) {
-            setTimeout(update, 200);
-        }
+    const easeOutExpo = (t) => {
+        return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
     };
 
-    update();
+    const animateCount = () => {
+        const duration = 1800;
+        const startTime = performance.now();
+
+        const update = (time) => {
+            const elapsed = time - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+
+            const eased = easeOutExpo(progress);
+            const value = Math.floor(eased * totalCerts);
+
+            counter.innerText = value;
+
+            // cyber glow pulse intensity
+            const glow = 10 + Math.sin(progress * 30) * 5;
+
+            counter.style.textShadow = `
+                0 0 ${glow}px #00fff0,
+                0 0 ${glow * 2}px #00b3ff
+            `;
+
+            // subtle flicker early, stabilizes later
+            counter.style.opacity = 0.7 + progress * 0.3;
+
+            // digital jitter (very subtle)
+            if (progress < 0.3 && Math.random() > 0.7) {
+                counter.style.transform = `translate(${Math.random() * 2}px, ${Math.random() * 2}px)`;
+            } else {
+                counter.style.transform = "translate(0,0)";
+            }
+
+            if (progress < 1) {
+                requestAnimationFrame(update);
+            } else {
+                counter.innerText = totalCerts;
+                counter.style.textShadow = "0 0 12px #00fff0, 0 0 24px #00b3ff";
+                counter.style.transform = "translate(0,0)";
+                counter.style.opacity = "1";
+            }
+        };
+
+        requestAnimationFrame(update);
+    };
+
+    // trigger on scroll
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !started) {
+                started = true;
+                animateCount();
+            }
+        });
+    }, {
+        threshold: 0.5
+    });
+
+    observer.observe(counter);
 });
     </script>
  
