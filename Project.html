@@ -65,16 +65,16 @@
 
             
             <div class="proj-stats">
-                <div class="proj-stat">
-                    <span class="proj-stat-num" id="counting">0</span>
+                <div class="proj-stat" data-animate>
+                    <span class="proj-stat-num" data-count="projtitle">0</span>
                     <span class="proj-stat-label">Projects</span>
                 </div>
-                <div class="proj-stat">
-                    <span class="proj-stat-num " id="counting1">0</span>
+                <div class="proj-stat" data-animate>
+                    <span class="proj-stat-num" data-count="catprogramming">0</span>
                     <span class="proj-stat-label">Languages</span>
                 </div>
-                <div class="proj-stat">
-                    <span class="proj-stat-num" id="counting2">0</span>
+                <div class="proj-stat" data-animate>
+                    <span class="proj-stat-num" data-count="catdesign">0</span> 
                     <span class="proj-stat-label">Categories</span>
                 </div>
             </div>
@@ -523,6 +523,7 @@
             progressBar.style.width = (scrollTop / docHeight * 100) + '%';
         }, { passive: true });
 </script>
+
     <script>
   document.addEventListener("DOMContentLoaded", () => {
 
@@ -666,6 +667,69 @@
 });
     </script>
 
+    <script>
+       document.addEventListener("DOMContentLoaded", () => {
+
+    // Define your named values here
+    const countMap = {
+        projtitle: document.querySelectorAll('.proj-title').length,
+        catdesign: document.querySelectorAll('.category-design').length,
+        catprogramming: document.querySelectorAll('.category-programming').length,
+    };
+
+    const observerItems = document.querySelectorAll('[data-animate]');
+
+    const easeOutExpo = (t) => t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+
+                const num = entry.target.querySelector('[data-count]');
+                if (num) {
+
+                    let key = num.dataset.count;
+
+                    //check if it's a name or number
+                    let target = isNaN(key) ? countMap[key] : parseInt(key);
+
+                    if (!target) return;
+
+                    let startTime = null;
+                    const duration = 1200;
+
+                    const animate = (time) => {
+                        if (!startTime) startTime = time;
+
+                        const progress = Math.min((time - startTime) / duration, 1);
+                        const eased = easeOutExpo(progress);
+
+                        num.textContent = Math.floor(eased * target);
+
+                        if (progress < 1) requestAnimationFrame(animate);
+                        else num.textContent = target;
+                    };
+
+                    requestAnimationFrame(animate);
+                }
+
+                io.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+
+    observerItems.forEach(el => io.observe(el));
+});
+    </script>
+
+<script>
+    // ── Back to Top ──
+        const btt = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            btt.classList.toggle('show', window.scrollY > 500);
+        }, { passive: true });
+        btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+</script>
 
 </body>
 </html>
