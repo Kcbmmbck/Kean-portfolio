@@ -154,20 +154,20 @@
     <!-- ── STATS STRIP  ── -->
     <div class="stats-strip">
         <div class="stat-item" data-animate>
-            <div class="stat-number" data-count="3">0</div>
+            <div class="stat-number" data-count="4">0</div>
             <div class="stat-label">Years of Learning</div>
         </div>
         <div class="stat-item" data-animate>
-            <div class="stat-number" data-count="10">0</div>
+            <div class="stat-number" data-count="7">0</div>
             <div class="stat-label">Projects Built</div>
         </div>
         <div class="stat-item" data-animate>
-            <div class="stat-number" data-count="8">0</div>
+            <div class="stat-number" data-count="9">0</div>
             <div class="stat-label">Certificates</div>
         </div>
         <div class="stat-item" data-animate>
-            <div class="stat-number" data-count="5">0</div>
-            <div class="stat-label">Tech Trainings</div>
+            <div class="stat-number" data-count="2">0</div>
+            <div class="stat-label">Trainings</div>
         </div>
     </div>
 
@@ -385,7 +385,7 @@
                             const step = target / (duration / 16);
                             const timer = setInterval(() => {
                                 current = Math.min(current + step, target);
-                                num.textContent = Math.round(current) + '+';
+                                num.textContent = Math.round(current);
                                 if (current >= target) clearInterval(timer);
                             }, 16);
                         }
