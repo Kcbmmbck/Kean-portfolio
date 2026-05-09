@@ -4432,6 +4432,11 @@ button {
   margin-bottom: 10px !important;
 }
 
+.stats-strip {
+  margin-top: 30px !important;
+  margin-bottom: 10px !important;
+}
+
 .hero-title .line-gradient {
   background: linear-gradient(90deg, var(--c) 0%, var(--p) 50%, var(--b) 100%);
   -webkit-background-clip: text;
@@ -4451,6 +4456,19 @@ button {
   border-radius: 16px;
   background: var(--surface);
   backdrop-filter: blur(20px);
+  overflow: hidden;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0;
+  animation: slideUp 0.7s ease forwards 0.4s;
+}
+
+.stats-strip{
+   display: flex;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 50px;
   overflow: hidden;
   width: fit-content;
   margin-left: auto;
@@ -4514,6 +4532,18 @@ button {
 }
 
 .internship-block.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.Training-block {
+  margin-bottom: 100px;
+  position: relative;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.Training-block.visible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -4635,6 +4665,9 @@ button {
   }
 
   .stats-bar {
+    flex-direction: column;
+  }
+  .stats-strip{
     flex-direction: column;
   }
 
