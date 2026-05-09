@@ -65,6 +65,10 @@
                 <span class="cert-stat-num" data-count="1040">0</span>
                 <span class="cert-stat-label">OJT Hours</span>
             </div>
+              <div class="cert-stat" data-animate>
+                <span class="cert-stat-num" data-count="Training">0</span>
+                <span class="cert-stat-label">Training </span>
+            </div>
         </div>
 
         <!-- Filter Tabs -->
@@ -359,7 +363,7 @@
                     </button>
                 </div>
                 <!-- Training -->
-                 <div class="cert-card" data-category="training">
+                 <div class="cert-card Training" data-category="training">
                     <span class="cert-badge cyan">Training</span>
                     <div class="cert-image-container">
                         <img src="https://drive.google.com/thumbnail?id=1wt79KWNL0OmUCFO52AQtGBCH-YauSfxi&sz=s800" alt="BARISTA Training" class="cert-image">
@@ -531,6 +535,58 @@
             // Define your named values here
             const countMap = {
                 counting: document.querySelectorAll('.cert-card').length,
+            };
+
+            const observerItems = document.querySelectorAll('[data-animate]');
+
+            const easeOutExpo = (t) => t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+
+                        const num = entry.target.querySelector('[data-count]');
+                        if (num) {
+
+                            let key = num.dataset.count;
+
+                            //check if it's a name or number
+                            let target = isNaN(key) ? countMap[key] : parseInt(key);
+
+                            if (!target) return;
+
+                            let startTime = null;
+                            const duration = 1200;
+
+                            const animate = (time) => {
+                                if (!startTime) startTime = time;
+
+                                const progress = Math.min((time - startTime) / duration, 1);
+                                const eased = easeOutExpo(progress);
+
+                                num.textContent = Math.floor(eased * target);
+
+                                if (progress < 1) requestAnimationFrame(animate);
+                                else num.textContent = target;
+                            };
+
+                            requestAnimationFrame(animate);
+                        }
+
+                        io.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            observerItems.forEach(el => io.observe(el));
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            // Define your named values here
+            const countMap = {
+                Training: document.querySelectorAll('.Training').length,
             };
 
             const observerItems = document.querySelectorAll('[data-animate]');
