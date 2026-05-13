@@ -221,7 +221,6 @@
         </script>
         <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
         <script>
-            // Particles
             if (typeof particlesJS !== 'undefined') {
                 particlesJS("particles-js", {
                     particles: {
@@ -247,7 +246,6 @@
                 document.getElementById('navMenu').classList.toggle('open');
             }
 
-            // Scroll reveal
             const blocks = document.querySelectorAll('[data-animate]');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach((entry, i) => {
@@ -259,7 +257,6 @@
             }, { threshold: 0.1 });
             blocks.forEach(b => observer.observe(b));
 
-            // Lightbox
             function openLightbox(card) {
                 const img = card.querySelector('img');
                 document.getElementById('lightboxImg').src = img.src;
@@ -286,18 +283,16 @@
             window.addEventListener('pageshow', function (event) {
                 document.body.classList.remove('fade-out');
             });
-            // Fade-out effect before navigating
             function goToPage(url) {
                 document.body.classList.add("fade-out");
                 setTimeout(() => {
                     window.location.href = url;
-                }, 500); // Match animation duration (0.5s)
+                }, 500);
             }
         </script>
         <script src="src/assests/js/Script.js"></script>
 
         <script>
-            // ── Back to Top ──
             const btt = document.getElementById('back-to-top');
             window.addEventListener('scroll', () => {
                 btt.classList.toggle('show', window.scrollY > 500);

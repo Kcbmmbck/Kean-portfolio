@@ -6,7 +6,6 @@ function toggleMenu() {
   navMenu.classList.toggle('active');
 }
 
-// Close menu when clicking on a link (mobile)
 document.querySelectorAll('.navbar-link').forEach(link => {
   link.addEventListener('click', () => {
     const hamburger = document.querySelector('.hamburger');
@@ -17,7 +16,6 @@ document.querySelectorAll('.navbar-link').forEach(link => {
   });
 });
 
-// Close menu when clicking outside (mobile)
 document.addEventListener('click', (e) => {
   const hamburger = document.querySelector('.hamburger');
   const navMenu = document.querySelector('.navbar-menu');
@@ -28,14 +26,12 @@ document.addEventListener('click', (e) => {
     navMenu.classList.remove('active');
   }
 });
-// -------------------------------------------------------- 
 
 document.querySelectorAll(".btn-proj").forEach(btn => {
   btn.addEventListener("click", function () {
     const videoSrc = this.getAttribute("data-video-src");
     const imageSrc = this.getAttribute("data-image-src");
 
-    // Open video if data-video-src exists
     if (videoSrc) {
       const videoModal = document.getElementById("videoModal");
       const video = document.getElementById("videoPlayer");
@@ -47,7 +43,6 @@ document.querySelectorAll(".btn-proj").forEach(btn => {
       videoModal.style.display = "flex";
     }
 
-    // Open image if data-image-src exists
     if (imageSrc) {
       const imageModal = document.getElementById("imageModal");
       const imageViewer = document.getElementById("imageViewer");
@@ -68,12 +63,11 @@ document.getElementById("closeModal").addEventListener("click", function () {
   videoModal.style.display = "none";
 });
 
-// Close Image Modal
 document.getElementById("closeImageModal").addEventListener("click", function () {
   const imageModal = document.getElementById("imageModal");
   const imageViewer = document.getElementById("imageViewer");
 
-  imageViewer.src = ""; // clear image
+  imageViewer.src = "";
   imageModal.style.display = "none";
 });
 document.getElementById("closeModal").addEventListener("click", function () {
@@ -85,35 +79,30 @@ document.getElementById("closeModal").addEventListener("click", function () {
   videoModal.style.display = "none";
 });
 
-// ---------warning---------- 
-const disabledKeys = ["x", "s", "J", "u", "I"]; // Removed "c" to allow copy
+const disabledKeys = ["x", "s", "J", "u", "I"];
 const Alert = e => {
-  e.preventDefault(); // Prevents default action
+  e.preventDefault();
 };
 
-// Disable right-click except in the #contact section
 document.addEventListener("contextmenu", e => {
   if (!e.target.closest("Contact")) {
     Alert(e);
   }
 });
 
-// Disable specific key combinations
 document.addEventListener("keydown", e => {
   if (
-    (e.ctrlKey && disabledKeys.includes(e.key)) || // Ctrl + key
-    (e.metaKey && disabledKeys.includes(e.key)) || // Cmd + key (Mac)
-    e.key === "F12" ||                              // F12 (DevTools)
-    (e.ctrlKey && e.shiftKey && e.key === "I")      // Ctrl+Shift+I (DevTools)
+    (e.ctrlKey && disabledKeys.includes(e.key)) ||
+    (e.metaKey && disabledKeys.includes(e.key)) ||
+    e.key === "F12" ||
+    (e.ctrlKey && e.shiftKey && e.key === "I")
   ) {
   }
 });
 
 document.addEventListener("contextmenu", e => {
-  // Allow normal right-click actions (copy, save image, etc.)
-  // But block when user tries to inspect element
   if (e.target.closest("Contact")) {
-    return; // allow in Contact section
+    return;
   }
 
   // Trick: detect right-click with Ctrl/Shift (used for Inspect in some browsers)
@@ -124,7 +113,7 @@ document.addEventListener("contextmenu", e => {
 });
 
 function goToPage(page) {
-  window.location.href = page; // Redirects to the given page
+  window.location.href = page;
 }
 
 
