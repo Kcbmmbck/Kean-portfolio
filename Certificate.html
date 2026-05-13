@@ -27,7 +27,6 @@
         </svg>
     </button>
 
-    <!-- NAVBAR -->
     <header>
         <nav class="new-navbar">
             <div class="navbar-container">
@@ -48,13 +47,11 @@
         </nav>
     </header>
 
-    <!-- PAGE HERO -->
     <div class="cert-hero">
         <h1 class="cert-hero-title"><span>My Certifications</span></h1>
         <p class="cert-hero-sub">Industry-recognized credentials validating expertise across programming, automation,
             and software development.</p>
 
-        <!-- Stats -->
         <div class="cert-stats">
             <div class="cert-stat " data-animate>
                 <span class="cert-stat-num" data-count="counting">0</span>
@@ -71,7 +68,6 @@
             </div>
         </div>
 
-        <!-- Filter Tabs -->
         <div class="cert-filters">
             <button class="filter-btn active" data-filter="all">All</button>
             <button class="filter-btn" data-filter="certiport">Certiport</button>
@@ -82,12 +78,10 @@
         </div>
     </div>
 
-    <!-- CERT GRID -->
     <section class="certifications-section" id="Certificate">
         <div class="container-certs">
             <div class="cert-grid ">
 
-                <!-- Java -->
                 <div class="cert-card" data-category="certiport">
                     <span class="cert-badge cyan">Certiport</span>
                     <div class="cert-image-container">
@@ -109,7 +103,6 @@
                     </button>
                 </div>
 
-                <!-- Python -->
                 <div class="cert-card" data-category="certiport">
                     <span class="cert-badge cyan">Certiport</span>
                     <div class="cert-image-container">
@@ -131,7 +124,6 @@
                     </button>
                 </div>
 
-                <!-- OJT 1 -->
                 <div class="cert-card" data-category="internship">
                     <span class="cert-badge green">Internship</span>
                     <div class="cert-image-container">
@@ -156,7 +148,6 @@
                     </button>
                 </div>
 
-                <!-- OJT 2 -->
                 <div class="cert-card" data-category="internship">
                     <span class="cert-badge green">Internship</span>
                     <div class="cert-image-container">
@@ -182,7 +173,6 @@
                     </button>
                 </div>
 
-                <!-- Diploma -->
                 <div class="cert-card" data-category="academic">
                     <span class="cert-badge purple">Academic</span>
                     <div class="cert-image-container">
@@ -204,7 +194,6 @@
                     </button>
                 </div>
 
-                <!-- IBM Basic I -->
                 <div class="cert-card" data-category="ibm">
                     <span class="cert-badge cyan">IBM</span>
                     <div class="cert-image-container">
@@ -226,7 +215,6 @@
                     </button>
                 </div>
 
-                <!-- IBM Basic II -->
                 <div class="cert-card" data-category="ibm">
                     <span class="cert-badge cyan">IBM</span>
                     <div class="cert-image-container">
@@ -248,7 +236,6 @@
                     </button>
                 </div>
 
-                <!-- IBM Regex -->
                 <div class="cert-card" data-category="ibm">
                     <span class="cert-badge cyan">IBM</span>
                     <div class="cert-image-container">
@@ -271,7 +258,6 @@
                     </button>
                 </div>
 
-                <!-- IBM Intermediate I -->
                 <div class="cert-card" data-category="ibm">
                     <span class="cert-badge cyan">IBM</span>
                     <div class="cert-image-container">
@@ -293,7 +279,6 @@
                     </button>
                 </div>
 
-                <!-- IBM Intermediate II -->
                 <div class="cert-card" data-category="ibm">
                     <span class="cert-badge cyan">IBM</span>
                     <div class="cert-image-container">
@@ -315,7 +300,6 @@
                     </button>
                 </div>
 
-                <!-- IBM Reports -->
                 <div class="cert-card" data-category="ibm">
                     <span class="cert-badge cyan">IBM</span>
                     <div class="cert-image-container">
@@ -339,7 +323,6 @@
                     </button>
                 </div>
 
-                <!-- IBM Database -->
                 <div class="cert-card" data-category="ibm">
                     <span class="cert-badge cyan">IBM</span>
                     <div class="cert-image-container">
@@ -362,7 +345,6 @@
                         View Certificate
                     </button>
                 </div>
-                <!-- Training -->
                  <div class="cert-card" data-category="training">
                     <span class="cert-badge green">Training</span>
                     <div class="cert-image-container">
@@ -381,17 +363,14 @@
         </div>
     </section>
 
-    <!-- MODAL -->
     <div id="certModal" class="modal" onclick="handleModalClick(event)">
         <span class="close-btn" onclick="closeModal()">&#x2715;</span>
         <img class="modal-content" id="modalImage" src="" alt="Certificate">
     </div>
 
-    <!-- ── ENHANCED FOOTER  ── -->
     <footer class="site-footer">
         <div class="footer-inner">
             <div class="footer-top">
-                <!-- Brand Col -->
                 <div class="footer-brand-col">
                     <div class="footer-brand-name">Kean Moscoso</div>
                     <p class="footer-brand-desc">A passionate Computer Science student specializing in Software
@@ -407,7 +386,6 @@
                     </div>
                 </div>
 
-                <!-- Quick Links Col -->
                 <div>
                     <p class="footer-col-title">Quick Links</p>
                     <ul class="footer-links-list">
@@ -418,7 +396,6 @@
                     </ul>
                 </div>
 
-                <!-- More Col -->
                 <div>
                     <p class="footer-col-title">More</p>
                     <ul class="footer-links-list">
@@ -461,7 +438,6 @@
             });
         }
 
-        // Hamburger
         function toggleMenu() {
             document.getElementById('navMenu').classList.toggle('active');
         }

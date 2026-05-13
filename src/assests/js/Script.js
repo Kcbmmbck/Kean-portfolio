@@ -53,7 +53,6 @@ document.querySelectorAll(".btn-proj").forEach(btn => {
   });
 });
 
-// Close Video Modal
 document.getElementById("closeModal").addEventListener("click", function () {
   const videoModal = document.getElementById("videoModal");
   const video = document.getElementById("videoPlayer");
@@ -105,7 +104,6 @@ document.addEventListener("contextmenu", e => {
     return;
   }
 
-  // Trick: detect right-click with Ctrl/Shift (used for Inspect in some browsers)
   if (e.ctrlKey || e.shiftKey) {
     Alert(e);
   }
